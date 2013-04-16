@@ -1,14 +1,20 @@
 <h1>Youtube#index</h1>
 <p>Find me in app/views/youtube/index.html.erb</p>
 
-<% @thumbnail_and_video.each do |thumbnail,video| %>
-	<%= content_tag "div",image_tag(thumbnail), id: thumbnail, class: "thumbnail", data: {iframe: render(partial: 'iframe', locals: {video: video})} %>
+
 	
-<% end %>
+	<% @thumbnails_and_videos.each_slice(2) do |two_thumbnail_and_video| %>
+		<ul class = "large-block-grid-2">
+				<% two_thumbnail_and_video.each do |thumbnail_and_video| %>	
+					<%= content_tag "a", image_tag(thumbnail_and_video[0]), id: thumbnail_and_video[0], class: "th radius", data: {iframe: render(partial: 'iframe', locals: {video: thumbnail_and_video[1]})} %>
+				<% end %>
+		</ul>
+	<% end %>
+	
 
 
 <div>
-<p>Target is:
+	<p>Target is:
 
- </p>
- </div>
+	</p>
+</div>

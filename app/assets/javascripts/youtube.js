@@ -2,15 +2,16 @@
 // All this logic will automatically be available in application.js.
 // You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-$(".thumbnail").click(function(){
+$("a[class='th radius']").click(function(){
 	var id = $(this).id;
 	console.log(id);
-	var x = $(this).data('iframe');
-	$(this).html(x);
+	var iframe = $(this).data('iframe');
+	var flex_iframe = $("<a class='th radius'>").append(iframe).append("</a>");
+	$(this).replaceWith(flex_iframe);
 });
-$(".thumbnail").each(function(){
+$(".centered").each(function(){
 	$(this).mouseover(function(){
-		$(this).css("background","#380606");
+		$(this).css("background","#87CEFA");
 	});
 	$(this).mouseout(function(){
 		$(this).css("background", "#FFF");
