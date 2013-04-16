@@ -1,25 +1,14 @@
 <h1>Youtube#index</h1>
 <p>Find me in app/views/youtube/index.html.erb</p>
 
-
-<%= content_tag "div", id: "thumbnail", data: {iframe: render(partial: 'iframe', locals: {video: @video})} do%>
-  <%= image_tag(@thumbnail) %>
+<% @thumbnail_and_video.each do |thumbnail,video| %>
+	<%= content_tag "div",image_tag(thumbnail), id: thumbnail, class: "thumbnail", data: {iframe: render(partial: 'iframe', locals: {video: video})} %>
+	
 <% end %>
 
 
 <div>
 <p>Target is:
-<!--<script>
-function changeSrc()
-  {
-  document.getElementById("thumbnail").innerHTML= "<%= render partial: 'iframe', locals: {video: @video} %>";
-  }
-</script>-->
-<!--<script type="text/javascript">
-$("#thumbnail").click(function(){
-	$(this).html("<%= render partial: 'iframe', locals: {video: @video} %>");
-});
 
-</script>-->
  </p>
  </div>
