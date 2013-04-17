@@ -3,13 +3,9 @@
 
 
 	
-	<% @thumbnails_and_videos.each_slice(2) do |two_thumbnail_and_video| %>
-		<ul class = "large-block-grid-2">
-				<% two_thumbnail_and_video.each do |thumbnail_and_video| %>	
-					<%= content_tag "a", image_tag(thumbnail_and_video[0]), id: thumbnail_and_video[0], class: "th radius", data: {iframe: render(partial: 'iframe', locals: {video: thumbnail_and_video[1]})} %>
-				<% end %>
-		</ul>
-	<% end %>
+<% @thumbnails_and_videos.each_slice(2) do |two_thumbnail_and_video| %>
+	<%= render(partial: 'thumbnails_and_videos', locals: {two_thumbnail_and_video: two_thumbnail_and_video}) %>
+<% end %>
 	
 
 
